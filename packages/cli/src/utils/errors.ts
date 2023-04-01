@@ -16,6 +16,10 @@ export class NotInsideProjectError extends Error {
   message = "You are not inside a MUD project";
 }
 
+export class CommandFailedError extends Error {
+  name = "CommandFailed";
+}
+
 export class MUDError extends Error {
   name = "MUDError";
 }
