@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "fs";
 import path from "path";
 import { MUDConfig, resolveWithContext } from "../config/index.js";
 import { MUDError } from "./errors.js";
-import { getOutDirectory, getScriptDirectory, cast, forge } from "./foundry.js";
+import { getOutDirectory, getScriptDirectory, cast, forge, FOUNDRY_OPTIONS_IGNORE_CODES } from "./foundry.js";
 import { BigNumber, ContractInterface, ethers } from "ethers";
 import { IBaseWorld } from "@latticexyz/world/types/ethers-contracts/IBaseWorld.js";
 import chalk from "chalk";
@@ -282,6 +282,8 @@ export async function deploy(mudConfig: MUDConfig, deployConfig: DeployConfig): 
       [
         "script",
         postDeployScript,
+        "--silent",
+        ...FOUNDRY_OPTIONS_IGNORE_CODES,
         "--sig",
         "run(address)",
         await contractPromises.World,

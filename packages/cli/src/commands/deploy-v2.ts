@@ -5,7 +5,7 @@ import type { CommandModule, Options } from "yargs";
 import { loadWorldConfig } from "../config/world/index.js";
 import { deploy } from "../utils/deploy-v2.js";
 import { logError, MUDError } from "../utils/errors.js";
-import { forge, getRpcUrl, getSrcDirectory } from "../utils/foundry.js";
+import { FOUNDRY_OPTIONS_IGNORE_CODES, forge, getRpcUrl, getSrcDirectory } from "../utils/foundry.js";
 import { mkdirSync, writeFileSync } from "fs";
 import { loadStoreConfig } from "../config/loadStoreConfig.js";
 import { getChainId } from "../utils/getChainId.js";
@@ -50,7 +50,7 @@ export async function deployHandler(args: Parameters<(typeof commandModule)["han
   if (clean) await forge(["clean"], { profile });
 
   // Run forge build
-  await forge(["build"], { profile });
+  await forge(["build", "--silent", ...FOUNDRY_OPTIONS_IGNORE_CODES], { profile });
 
   // Get a list of all contract names
   const srcDir = await getSrcDirectory();
