@@ -1,3 +1,4 @@
+(test/KeysWithTableModule.t.sol) | compute the target table selector [bytes32 targetTableSelector = getTargetTableSelector(MODULE_NAMESPACE, sourceTableId)]: 2240
 (test/KeysWithValueModule.t.sol) | install keys with value module [world.installRootModule(keysWithValueModule, abi.encode(sourceTableId))]: 600212
 (test/KeysWithValueModule.t.sol) | Get list of keys with a given value [bytes32[] memory keysWithValue = getKeysWithValue(world, sourceTableId, abi.encode(value1))]: 7671
 (test/KeysWithValueModule.t.sol) | compute the target table selector [bytes32 targetTableSelector = getTargetTableSelector(MODULE_NAMESPACE, sourceTableId)]: 2240
